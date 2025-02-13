@@ -18,7 +18,7 @@ class UnitListScreen extends StatelessWidget {
       body: Consumer<PhysicsProvider>(
         builder: (context, provider, child) {
           if (provider.units.isEmpty) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           return ListView.builder(
             itemCount: provider.units.length,

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../model/units_model.dart'; // To load JSON from assets
+import '../model/units_model.dart';
 
 class PhysicsProvider extends ChangeNotifier {
   List<PhysicsUnit> _units = [];
@@ -12,7 +12,7 @@ class PhysicsProvider extends ChangeNotifier {
 
   // Load units from a JSON file
   Future<void> loadUnits() async {
-    final String response = await rootBundle.loadString('data/units.json');
+    final response = await rootBundle.loadString('assets/data/units.json');
     final List<dynamic> data = jsonDecode(response);
     _units = data.map((item) => PhysicsUnit.fromJson(item)).toList();
     notifyListeners();

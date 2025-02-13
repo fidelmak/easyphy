@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../model/unit_quiz_model.dart';
 import '../screens/quiz_result.dart';
-// Make sure to import the model file
 
 class QuizProvider with ChangeNotifier {
   int currentQuestionIndex = 0;
@@ -10,61 +9,83 @@ class QuizProvider with ChangeNotifier {
   bool answered = false;
   List<QuizQuestion> questions = []; // List to store quiz questions
 
-  // Load the questions from units.json
+  // Load questions safely
   void loadQuestions(List<Map<String, dynamic>> data) {
+    if (data.isEmpty) return;
+
     questions = data.map((item) {
       return QuizQuestion(
-        id: item['id'],
-        name: item['name'],
-        options: List<String>.from(item['options']),
-        correctAnswer: item['correctAnswer'],
+        id: item['id']?.toString() ?? 'N/A', // Ensure it's always a String
+        name: item['name'] ?? 'Unknown Question',
+        options: (item['options'] as List<dynamic>?)
+                ?.map((option) => option.toString())
+                .toList() ??
+            [], // Ensure it's always a List<String>
+        correctAnswer: item['correctAnswer'] ?? '',
       );
     }).toList();
+
+    // Reset quiz state
+    currentQuestionIndex = 0;
+    score = 0;
+    answered = false;
+
     notifyListeners();
   }
 
-  // Check the answer
+  // Check if an answer is correct
   void checkAnswer(String answer) {
-    if (answered) return;
+    if (answered || questions.isEmpty) return;
 
-    if (questions[currentQuestionIndex].isCorrect(answer)) {
+    if (currentQuestion.isCorrect(answer)) {
       score++;
     }
+
     answered = true;
     notifyListeners();
   }
 
-  // Move to the next question
+  // Move to next question or result screen
   void nextQuestion(BuildContext context) {
+    if (questions.isEmpty) return;
+
     if (currentQuestionIndex < questions.length - 1) {
       currentQuestionIndex++;
       answered = false;
       notifyListeners();
     } else {
-      // Navigate to result screen
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => QuizResultScreen()),
-      );
+      Future.delayed(Duration(milliseconds: 500), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => QuizResultScreen()),
+        );
+      });
     }
   }
 
-  // Get the current question
+  // Safely return the current question
   QuizQuestion get currentQuestion {
+    if (questions.isEmpty) {
+      return QuizQuestion(
+          id: '0',
+          name: 'No Questions Available',
+          options: [],
+          correctAnswer: '');
+    }
     return questions[currentQuestionIndex];
   }
 
-  // Calculate average score
-  double get averageScore {
-    return questions.length / 2;
-  }
+  // Calculate pass score (50% of total)
+  double get passingScore => questions.length * 0.5;
 
+  // Reset quiz properly
   void resetQuiz() {
     currentQuestionIndex = 0;
+    score = 0;
     answered = false;
     notifyListeners();
   }
 
-  // Check if user has passed
-  bool get passed => score >= averageScore;
+  // Check if user passed
+  bool get passed => score >= passingScore;
 }

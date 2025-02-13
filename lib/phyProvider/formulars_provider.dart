@@ -15,7 +15,7 @@ class PhysicsFormulaProvider extends ChangeNotifier {
     try {
       //final file = File('assets/data/formulars.json');
       final String response =
-          await rootBundle.loadString('data/formulars.json');
+          await rootBundle.loadString('assets/data/formulars.json');
       final List<dynamic> data = jsonDecode(response);
 
       _formulas = data.map((item) => PhysicsFormula.fromJson(item)).toList();

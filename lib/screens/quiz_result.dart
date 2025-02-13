@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../phyProvider/unit_quiz_provider.dart';
-import 'display_screen.dart';
 
 class QuizResultScreen extends StatefulWidget {
   @override
@@ -30,11 +29,8 @@ class _QuizResultScreenState extends State<QuizResultScreen> {
                 ? CustomButton(
                     text: 'Go Back to Display Screen',
                     press: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DisplayScreen()),
-                      );
+                      quizProvider.resetQuiz();
+                      Navigator.pop(context);
                     },
                   )
                 : CustomButton(

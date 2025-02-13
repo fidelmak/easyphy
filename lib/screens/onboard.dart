@@ -1,9 +1,10 @@
+import 'package:easyphy/screens/select_category.dart';
 import 'package:easyphy/screens/unit_quiz_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/custom_button.dart';
-import 'display_screen.dart';
+import 'other_select.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override
@@ -135,7 +136,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (ctx) {
-                        return DisplayScreen();
+                        return SelectCategory();
                       }));
                     },
                     style: ElevatedButton.styleFrom(
@@ -150,7 +151,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                     ),
                     child: Text(
-                      "Let's Get Started",
+                      "Take Exams",
                       style: TextStyle(
                         color: Colors.black87,
                         fontFamily: "Montserrat",
@@ -167,7 +168,36 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           MaterialPageRoute(builder: (ctx) => QuizScreen()));
                     },
                   ),
-                  SizedBox(height: 20.sp)
+                  SizedBox(height: 10.sp),
+                  //
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                        return OtherSelect();
+                      }));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      minimumSize: Size(260.sp, 48.sp), // Adjusted button size
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(5.r), // Radius applied
+                        side: BorderSide(
+                            color: Colors.black87, width: 1.5), // Outline style
+                      ),
+                    ),
+                    child: Text(
+                      "Explore",
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontFamily: "Montserrat",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.sp, // Adjusted font size
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10.sp),
                 ],
               ),
             ),

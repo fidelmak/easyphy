@@ -1,4 +1,5 @@
 import 'package:easyphy/phyProvider/formulars_provider.dart';
+import 'package:easyphy/phyProvider/laws_provider.dart';
 import 'package:easyphy/phyProvider/unit_quiz_provider.dart';
 import 'package:easyphy/phyProvider/units_provider.dart';
 import 'package:easyphy/splash_screen.dart';
@@ -12,6 +13,8 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => PhysicsProvider()..loadUnits()),
         ChangeNotifierProvider(create: (_) => QuizProvider()),
+        ChangeNotifierProvider(
+            create: (_) => PhysicsLawProvider()..loadFormulas()),
         ChangeNotifierProvider(
             create: (_) => PhysicsFormulaProvider()..loadFormulas()),
       ],

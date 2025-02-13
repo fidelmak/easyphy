@@ -86,7 +86,7 @@ final List<Map<String, dynamic>> quizData = [
     "name": "Power",
     "options": [
       "kg",
-      "s",
+      "Wt",
       "W",
     ],
     "correctAnswer": "W"
@@ -94,15 +94,15 @@ final List<Map<String, dynamic>> quizData = [
   {
     "id": "15",
     "name": "Pressure",
-    "options": ["kg", "Pa", "m"],
+    "options": ["kg/m", "Pa", "kg/m³"],
     "correctAnswer": "Pa"
   },
   {
     "id": "16",
     "name": "Frequency",
     "options": [
-      "kg",
-      "s",
+      "N",
+      "m",
       "Hz",
     ],
     "correctAnswer": "Hz"
@@ -110,7 +110,7 @@ final List<Map<String, dynamic>> quizData = [
   {
     "id": "17",
     "name": "Electric Charge",
-    "options": ["kg", "C", "m"],
+    "options": ["N", "C", "m"],
     "correctAnswer": "C"
   },
   {
@@ -118,7 +118,7 @@ final List<Map<String, dynamic>> quizData = [
     "name": "Electric Potential",
     "options": [
       "kg",
-      "s",
+      "C",
       "V",
     ],
     "correctAnswer": "V"
@@ -126,50 +126,50 @@ final List<Map<String, dynamic>> quizData = [
   {
     "id": "19",
     "name": "Electric Resistance",
-    "options": ["kg", "Ω", "m"],
+    "options": ["A", "Ω", "J"],
     "correctAnswer": "Ω"
   },
   {
     "id": "20",
     "name": "Capacitance",
-    "options": ["F", "kg", "s"],
+    "options": ["F", "kg", "Ω"],
     "correctAnswer": "F"
   },
   {
     "id": "21",
     "name": "Inductance",
-    "options": ["kg", "H", "m"],
+    "options": ["Ω", "H", "F"],
     "correctAnswer": "H"
   },
   {
     "id": "22",
     "name": "Magnetic Flux",
-    "options": ["kg", "Wb", "s"],
+    "options": ["H", "Wb", "F"],
     "correctAnswer": "Wb"
   },
   {
     "id": "23",
     "name": "Magnetic Field Strength",
-    "options": ["kg", "T", "m"],
+    "options": ["Wb", "T", "H"],
     "correctAnswer": "T"
   },
   {
     "id": "24",
     "name": "Luminous Flux",
-    "options": ["kg", "lm", "s"],
+    "options": ["F", "lm", "Wb"],
     "correctAnswer": "lm"
   },
   {
     "id": "25",
-    "name": "Illuminance",
-    "options": ["lx", "kg", "m"],
-    "correctAnswer": "lx"
+    "name": "Temperature",
+    "options": ["K", "kg", "m"],
+    "correctAnswer": "K"
   },
   {
     "id": "26",
-    "name": "Radioactivity",
-    "options": ["Bq", "kg", "s"],
-    "correctAnswer": "Bq"
+    "name": "Heat",
+    "options": ["J", "K", "s"],
+    "correctAnswer": "J"
   },
   {
     "id": "27",
@@ -179,15 +179,15 @@ final List<Map<String, dynamic>> quizData = [
   },
   {
     "id": "28",
-    "name": "Equivalent Dose",
-    "options": ["Sv", "kg", "s"],
-    "correctAnswer": "Sv"
+    "name": "Acceleration",
+    "options": ["m/s", "kg", "m/s²"],
+    "correctAnswer": "m/s²"
   },
   {
     "id": "29",
-    "name": "Catalytic Activity",
-    "options": ["kat", "kg", "m"],
-    "correctAnswer": "kat"
+    "name": "Area",
+    "options": ["m", "m/s²", "m²"],
+    "correctAnswer": "m²"
   },
   {
     "id": "30",
@@ -228,53 +228,53 @@ final List<Map<String, dynamic>> quizData = [
   {
     "id": "36",
     "name": "Specific Heat Capacity",
-    "options": ["kg", "J/(kg·K)", "s"],
+    "options": ["kg", "J/(kg·K)", "m/s²"],
     "correctAnswer": "J/(kg·K)"
   },
   {
     "id": "37",
     "name": "Thermal Conductivity",
-    "options": ["W/(m·K)", "kg", "m"],
+    "options": ["W/(m·K)", "kg/m²", "m"],
     "correctAnswer": "W/(m·K)"
   },
   {
     "id": "38",
-    "name": "Electric Conductance",
+    "name": "Density",
     "options": [
       "kg",
-      "s",
+      "kg/m3",
       "S",
     ],
-    "correctAnswer": "S"
+    "correctAnswer": "kg/m3"
   },
   {
     "id": "39",
     "name": "Electric Field Strength",
-    "options": ["V/m", "kg", "m"],
+    "options": ["V/m", "V", "N"],
     "correctAnswer": "V/m"
   },
   {
     "id": "40",
     "name": "Magnetic Field Strength",
-    "options": ["kg", "A/m", "s"],
+    "options": ["V/m", "A/m", "A"],
     "correctAnswer": "A/m"
   },
   {
     "id": "41",
     "name": "Permittivity",
-    "options": ["F/m", "kg", "m"],
+    "options": ["F/m", "V/m", "A/m"],
     "correctAnswer": "F/m"
   },
   {
     "id": "42",
     "name": "Permeability",
-    "options": ["H/m", "kg", "s"],
+    "options": ["H/m", "H", "F"],
     "correctAnswer": "H/m"
   },
   {
     "id": "43",
     "name": "Molar Energy",
-    "options": ["J/mol", "kg", "m"],
+    "options": ["J/mol", "mol", "K"],
     "correctAnswer": "J/mol"
   },
   {
@@ -285,16 +285,16 @@ final List<Map<String, dynamic>> quizData = [
   },
   {
     "id": "45",
-    "name": "Molar Heat Capacity",
-    "options": ["kg", "J/(mol·K)", "m"],
-    "correctAnswer": "J/(mol·K)"
+    "name": "Weight",
+    "options": ["kg", "N", "Hz"],
+    "correctAnswer": "N"
   },
   {
     "id": "46",
     "name": "Molar Volume",
     "options": [
-      "kg",
-      "s",
+      "m/mol",
+      "mol",
       "m³/mol",
     ],
     "correctAnswer": "m³/mol"
@@ -302,25 +302,25 @@ final List<Map<String, dynamic>> quizData = [
   {
     "id": "47",
     "name": "Molar Mass",
-    "options": ["kg/mol", "kg", "m"],
+    "options": ["kg/mol", "m³/mol", "mol"],
     "correctAnswer": "kg/mol"
   },
   {
     "id": "48",
     "name": "Molar Concentration",
-    "options": ["mol/m³", "kg", "s"],
+    "options": ["mol/m³", "kg/mol", "mol"],
     "correctAnswer": "mol/m³"
   },
   {
     "id": "49",
-    "name": "Radiant Intensity",
-    "options": ["kg", "m", "W/sr"],
-    "correctAnswer": "W/sr"
+    "name": "Heat Capacity",
+    "options": ["J", "J/K", "K"],
+    "correctAnswer": "J/K"
   },
   {
     "id": "50",
-    "name": "Radiance",
-    "options": ["W/(sr·m²)", "kg", "s"],
-    "correctAnswer": "W/(sr·m²)"
+    "name": "Tension",
+    "options": ["W", "N", "A"],
+    "correctAnswer": "N"
   }
 ];

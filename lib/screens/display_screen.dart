@@ -1,3 +1,4 @@
+import 'package:easyphy/screens/laws_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,22 +12,18 @@ class DisplayScreen extends StatefulWidget {
 }
 
 class _DisplayScreenState extends State<DisplayScreen> {
-  ///////
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-
     final size = MediaQuery.of(context).size;
-
     //ResponsiveLay().scaleWidth(18)
   }
 
-  /////
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
   final List<String> images = [
-    'assets/images/neutron.jpg',
+    'assets/images/Neutron.jpg',
   ];
 
   final List<String> bText = [
@@ -89,18 +86,16 @@ class _DisplayScreenState extends State<DisplayScreen> {
                                 child: Text(
                                   "Welcome to  \n EasyPhy .",
                                   style: TextStyle(
-                                    fontFamily: 'ZCOOLXiaoWei',
                                     color: Colors.white,
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 30.sp, // Responsive font size
+                                    fontSize: 20.sp, // Responsive font size
                                   ),
-                                  textAlign: TextAlign
-                                      .center, // Optional: Center align the text
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ),
                           ),
-                          SizedBox(height: 18.sp),
+                          SizedBox(height: 20.sp),
                           Center(
                             child: Container(
                               width: 295.sp, //ResponsiveLay().scaleWidth(),
@@ -108,49 +103,47 @@ class _DisplayScreenState extends State<DisplayScreen> {
                                 child: RichText(
                                   textAlign: TextAlign.center,
                                   text: TextSpan(
-                                      text: "Learn ",
-                                      style: TextStyle(
-                                          height: 1.4.sp,
+                                    text: "Learn",
+                                    style: TextStyle(
+                                      height: 1.4.sp,
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 16.sp, // Responsive font size
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                        text: " Physics",
+                                        style: TextStyle(
+                                          fontFamily: 'Montserrat',
+                                          color: nov,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize:
+                                              16.sp, // Responsive font size
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: " Units\n",
+                                        style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          color: nov,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize:
+                                              16.sp, // Responsive font size
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: " and Quantities",
+                                        style: TextStyle(
                                           fontFamily: 'Montserrat',
                                           color: Colors.white,
                                           fontWeight: FontWeight.w400,
                                           fontSize:
-                                              16.sp // Responsive font size
-                                          ),
-                                      children: [
-                                        TextSpan(
-                                          text: "Physics",
-                                          style: TextStyle(
-                                            fontFamily: 'Montserrat',
-                                            color: nov,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize:
-                                                16.sp, // Responsive font size
-                                          ),
+                                              16.sp, // Responsive font size
                                         ),
-                                        TextSpan(
-                                          text: "Units,\n",
-                                          style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            color: nov,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize:
-                                                16.sp, // Responsive font size
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: "and Quantities",
-                                          style: TextStyle(
-                                            fontFamily: 'Montserrat',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize:
-                                                16.sp, // Responsive font size
-                                          ),
-                                        ),
-                                      ]
-                                      // Optional: Center align the text
                                       ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -185,7 +178,7 @@ class _DisplayScreenState extends State<DisplayScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 40.sp),
+                          SizedBox(height: 20.sp),
                           Center(
                             child: Container(
                               width: 245.sp, //ResponsiveLay().scaleWidth(),
@@ -193,34 +186,32 @@ class _DisplayScreenState extends State<DisplayScreen> {
                                 child: RichText(
                                   textAlign: TextAlign.center,
                                   text: TextSpan(
-                                      text: "Physics ",
-                                      style: TextStyle(
-                                          height: 1.4.sp,
-                                          fontFamily: 'Poppins',
-                                          color: Colors.white,
+                                    text: "Physics ",
+                                    style: TextStyle(
+                                      height: 1.4.sp,
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 18.sp, // Responsive font size
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                        text: "Formulars, ",
+                                        style: TextStyle(
+                                          fontFamily: 'Montserrat',
+                                          color: mama,
                                           fontWeight: FontWeight.w400,
                                           fontSize:
-                                              18.sp // Responsive font size
-                                          ),
-                                      children: [
-                                        TextSpan(
-                                          text: "Formulars, ",
-                                          style: TextStyle(
-                                              fontFamily: 'Montserrat',
-                                              color: mama,
-                                              fontWeight: FontWeight.w400,
-                                              fontSize:
-                                                  18.sp // Responsive font size
-                                              ),
+                                              18.sp, // Responsive font size
                                         ),
-                                      ]
-                                      // Optional: Center align the text
                                       ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                          SizedBox(height: 20.sp),
+                          SizedBox(height: 10.sp),
                           ElevatedButton(
                             onPressed: () {
                               Navigator.push(context,
@@ -242,6 +233,67 @@ class _DisplayScreenState extends State<DisplayScreen> {
                               style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 color: Color(0xff1E1E1E),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18.sp,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20.sp),
+                          Center(
+                            child: Container(
+                              width: 245.sp, //ResponsiveLay().scaleWidth(),
+                              child: FittedBox(
+                                child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                    text: "Physics ",
+                                    style: TextStyle(
+                                      height: 1.4.sp,
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 18.sp, // Responsive font size
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                        text: "Laws, ",
+                                        style: TextStyle(
+                                          fontFamily: 'Montserrat',
+                                          color: mama,
+                                          fontWeight: FontWeight.w400,
+                                          fontSize:
+                                              18.sp, // Responsive font size
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10.sp),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (ctx) {
+                                return LawsScreen();
+                              }));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              minimumSize: Size(200.sp, 48.sp),
+                              backgroundColor: mama,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.r),
+                                side:
+                                    BorderSide(color: Colors.white, width: 1.5),
+                              ),
+                            ),
+                            child: Text(
+                              "Explore Laws",
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                color: nov,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 18.sp,
                               ),

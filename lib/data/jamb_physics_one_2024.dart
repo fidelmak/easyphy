@@ -1,4 +1,4 @@
-final List<Map<String, dynamic>> quizData = [
+final List<Map<String, dynamic>> JambDataone2024 = [
   {
     "id": "1",
     "name":
