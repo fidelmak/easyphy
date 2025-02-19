@@ -29,6 +29,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    bool isDesktop = screenWidth > 600;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -43,29 +46,44 @@ class _SplashScreenState extends State<SplashScreen> {
             end: Alignment.bottomRight,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-                child: ClipOval(
-              child: Image.asset(
-                'assets/images/logo.jpg',
-                width: 275.sp,
-                height: 278.sp,
-                fit: BoxFit.contain,
+        child: isDesktop
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Text("Gratitude to Muslim Community Grammar School",
+                        style: TextStyle(
+                            fontSize: 12.sp,
+                            fontStyle: FontStyle.italic,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w200,
+                            color: Colors.black)),
+                  ),
+                ],
+              )
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                      child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/logo.jpg',
+                      width: 275.sp,
+                      height: 278.sp,
+                      fit: BoxFit.contain,
+                    ),
+                  )),
+                  Center(
+                    child: Text("Gratitude to Muslim Community Grammar School",
+                        style: TextStyle(
+                            fontSize: 12.sp,
+                            fontStyle: FontStyle.italic,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w200,
+                            color: Colors.black)),
+                  ),
+                ],
               ),
-            )),
-            Center(
-              child: Text("Gratitude to Muslim Community Grammar School",
-                  style: TextStyle(
-                      fontSize: 12.sp,
-                      fontStyle: FontStyle.italic,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w200,
-                      color: Colors.black)),
-            ),
-          ],
-        ),
       ),
     );
   }

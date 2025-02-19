@@ -37,102 +37,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    bool isDesktop = screenWidth > 600;
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Container(
-            height: screenHeight * 0.60, // Adjusted to 60% of screen height
-            child: PageView.builder(
-              controller: _pageController,
-              onPageChanged: (index) {
-                setState(() {
-                  _currentPage = index;
-                });
-              },
-              itemCount: images.length,
-              itemBuilder: (context, index) {
-                return ClipPath(
-                  clipper: CurveClipper(),
-                  child: Container(
-                    width: screenWidth,
-                    height:
-                        screenHeight * 0.60, // Adjusted to 60% of screen height
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(images[index]),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(8.0.sp),
+      body: isDesktop
+          ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: screenWidth / 1.2,
-                    child: Text(
-                      bText[_currentPage],
-                      style: TextStyle(
-                        fontFamily: 'ZCOOLXiaoWei',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 24.sp, // Adjusted font size
-                        color: Colors.black,
-                        height: 1.2, // Reduced text height spacing to 1.2
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  SizedBox(height: 8.sp),
-                  SizedBox(
-                    width: screenWidth / 1.2,
-                    child: Text(
-                      secondText[_currentPage],
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14.sp, // Adjusted font size
-                        color: Colors.grey,
-                        height: 1.2, // Reduced text height spacing to 1.2
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  SizedBox(height: 20.sp),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(images.length, (index) {
-                      return GestureDetector(
-                        onTap: () {
-                          _pageController.animateToPage(
-                            index,
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                        child: Container(
-                          width: _currentPage == index ? 30.sp : 10.sp,
-                          height: 2.sp,
-                          margin: EdgeInsets.symmetric(
-                              horizontal: 2.sp), // Reduced gap between dots
-                          decoration: BoxDecoration(
-                            color: _currentPage == index
-                                ? Colors.black
-                                : Colors.grey,
-                            borderRadius: BorderRadius.circular(5.r),
-                          ),
-                        ),
-                      );
-                    }),
-                  ),
-                  SizedBox(height: 10.sp),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (ctx) {
@@ -141,13 +54,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      minimumSize: Size(260.sp, 48.sp), // Adjusted button size
+                      minimumSize: Size(260.sp, 48.sp),
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(5.r), // Radius applied
-                        side: BorderSide(
-                            color: Colors.black87, width: 1.5), // Outline style
+                        borderRadius: BorderRadius.circular(5.r),
+                        side: BorderSide(color: Colors.black87, width: 1.5),
                       ),
                     ),
                     child: Text(
@@ -156,54 +67,187 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         color: Colors.black87,
                         fontFamily: "Montserrat",
                         fontWeight: FontWeight.w600,
-                        fontSize: 16.sp, // Adjusted font size
+                        fontSize: 16.sp,
                       ),
                     ),
                   ),
-                  SizedBox(height: 10.sp),
-                  CustomButton(
-                    text: 'Take Quiz',
-                    press: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (ctx) => QuizScreen()));
-                    },
-                  ),
-                  SizedBox(height: 10.sp),
-                  //
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (ctx) {
-                        return OtherSelect();
-                      }));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      minimumSize: Size(260.sp, 48.sp), // Adjusted button size
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(5.r), // Radius applied
-                        side: BorderSide(
-                            color: Colors.black87, width: 1.5), // Outline style
-                      ),
-                    ),
-                    child: Text(
-                      "Explore",
-                      style: TextStyle(
-                        color: Colors.black87,
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16.sp, // Adjusted font size
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10.sp),
                 ],
               ),
+            )
+          : Column(
+              children: [
+                Container(
+                  height:
+                      screenHeight * 0.60, // Adjusted to 60% of screen height
+                  child: PageView.builder(
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentPage = index;
+                      });
+                    },
+                    itemCount: images.length,
+                    itemBuilder: (context, index) {
+                      return ClipPath(
+                        clipper: CurveClipper(),
+                        child: Container(
+                          width: screenWidth,
+                          height: screenHeight *
+                              0.60, // Adjusted to 60% of screen height
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(images[index]),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0.sp),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: screenWidth / 1.2,
+                          child: Text(
+                            bText[_currentPage],
+                            style: TextStyle(
+                              fontFamily: 'ZCOOLXiaoWei',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 24.sp, // Adjusted font size
+                              color: Colors.black,
+                              height: 1.2, // Reduced text height spacing to 1.2
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        SizedBox(height: 8.sp),
+                        SizedBox(
+                          width: screenWidth / 1.2,
+                          child: Text(
+                            secondText[_currentPage],
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14.sp, // Adjusted font size
+                              color: Colors.grey,
+                              height: 1.2, // Reduced text height spacing to 1.2
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        SizedBox(height: 20.sp),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(images.length, (index) {
+                            return GestureDetector(
+                              onTap: () {
+                                _pageController.animateToPage(
+                                  index,
+                                  duration: Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                );
+                              },
+                              child: Container(
+                                width: _currentPage == index ? 30.sp : 10.sp,
+                                height: 2.sp,
+                                margin: EdgeInsets.symmetric(
+                                    horizontal:
+                                        2.sp), // Reduced gap between dots
+                                decoration: BoxDecoration(
+                                  color: _currentPage == index
+                                      ? Colors.black
+                                      : Colors.grey,
+                                  borderRadius: BorderRadius.circular(5.r),
+                                ),
+                              ),
+                            );
+                          }),
+                        ),
+                        SizedBox(height: 10.sp),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (ctx) {
+                              return SelectCategory();
+                            }));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            minimumSize:
+                                Size(260.sp, 48.sp), // Adjusted button size
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(5.r), // Radius applied
+                              side: BorderSide(
+                                  color: Colors.black87,
+                                  width: 1.5), // Outline style
+                            ),
+                          ),
+                          child: Text(
+                            "Take Exams",
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontFamily: "Montserrat",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16.sp, // Adjusted font size
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10.sp),
+                        CustomButton(
+                          text: 'Take Quiz',
+                          press: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (ctx) => QuizScreen()));
+                          },
+                        ),
+                        SizedBox(height: 10.sp),
+                        //
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (ctx) {
+                              return OtherSelect();
+                            }));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            minimumSize:
+                                Size(260.sp, 48.sp), // Adjusted button size
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(5.r), // Radius applied
+                              side: BorderSide(
+                                  color: Colors.black87,
+                                  width: 1.5), // Outline style
+                            ),
+                          ),
+                          child: Text(
+                            "Explore",
+                            style: TextStyle(
+                              color: Colors.black87,
+                              fontFamily: "Montserrat",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16.sp, // Adjusted font size
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10.sp),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }
