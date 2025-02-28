@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../../data/jamb_physics_two_2024.dart';
+//import '../../data/jamb_physics_two_2024.dart';
 import '../../phyProvider/unit_quiz_provider.dart';
 
 // Import your model
@@ -19,7 +19,7 @@ class _QuizScreenState extends State<QuizScreenJambTwo> {
     final quizProvider = Provider.of<QuizProvider>(context, listen: false);
     // You can load your units.json data here.
 
-    quizProvider.loadQuestions(JambDataTwo2024);
+    //quizProvider.loadQuestions(JambDataTwo2024);
   }
 
   @override
@@ -28,7 +28,7 @@ class _QuizScreenState extends State<QuizScreenJambTwo> {
       builder: (context, quizProvider, _) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Jamb Physics Two '),
+            title: Text('Chemistry '),
           ),
           body: quizProvider.questions.isEmpty
               ? Center(child: CircularProgressIndicator())

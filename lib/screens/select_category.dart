@@ -1,9 +1,13 @@
 import 'package:easyphy/screens/practice.dart';
+import 'package:easyphy/solution/phy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../const/color.dart';
 import '../widgets/custom_button.dart';
+import 'Jamb/English.dart';
+import 'Jamb/biology.dart';
+import 'Jamb/chem.dart';
 import 'Jamb/phy_jamb_2024.dart';
 import 'Jamb/phy_jamb_2024_Two.dart';
 import 'Waec/General_phy.dart';
@@ -121,40 +125,6 @@ class _SelectCategoryState extends State<SelectCategory> {
                             padding: EdgeInsets.symmetric(horizontal: 16.sp),
                             child: Column(
                               children: [
-                                Center(
-                                  child: Container(
-                                    width:
-                                        295.sp, //ResponsiveLay().scaleWidth(),
-                                    child: FittedBox(
-                                      child: RichText(
-                                        textAlign: TextAlign.center,
-                                        text: TextSpan(
-                                          text: "NECO",
-                                          style: TextStyle(
-                                            height: 1.4.sp,
-                                            fontFamily: 'Montserrat',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize:
-                                                16.sp, // Responsive font size
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                              text: " Physics",
-                                              style: TextStyle(
-                                                fontFamily: 'Montserrat',
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 16
-                                                    .sp, // Responsive font size
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
                                 SizedBox(height: 20.sp),
                                 ElevatedButton(
                                   onPressed: () {
@@ -170,12 +140,12 @@ class _SelectCategoryState extends State<SelectCategory> {
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5.r),
                                       side: BorderSide(
-                                          color: Color(0xffFF2F13), width: 1),
+                                          color: Colors.white, width: 1),
                                     ),
                                   ),
                                   child: FittedBox(
                                     child: Text(
-                                      "Start  ",
+                                      "Physics",
                                       style: TextStyle(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
@@ -186,48 +156,42 @@ class _SelectCategoryState extends State<SelectCategory> {
                                   ),
                                 ),
                                 SizedBox(height: 20.sp),
-
-                                ////// this
-                                Center(
-                                  child: Container(
-                                    width:
-                                        245.sp, //ResponsiveLay().scaleWidth(),
-                                    child: FittedBox(
-                                      child: RichText(
-                                        textAlign: TextAlign.center,
-                                        text: TextSpan(
-                                          text: "Jamb ",
-                                          style: TextStyle(
-                                            height: 1.4.sp,
-                                            fontFamily: 'Poppins',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize:
-                                                16.sp, // Responsive font size
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                              text: " Physics, ",
-                                              style: TextStyle(
-                                                fontFamily: 'Montserrat',
-                                                color: mama,
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 16
-                                                    .sp, // Responsive font size
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 10.sp),
                                 ElevatedButton(
                                   onPressed: () {
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (ctx) {
-                                      return QuizScreenJambTwo();
+                                      return PhyQuizSolutionScreen();
+                                    }));
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 0,
+                                    minimumSize: Size(200.sp, 48.sp),
+                                    backgroundColor: Colors.black54,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5.r),
+                                      side: BorderSide(
+                                          color: Colors.white, width: 1),
+                                    ),
+                                  ),
+                                  child: FittedBox(
+                                    child: Text(
+                                      "Solution",
+                                      style: TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 18.sp,
+                                      ),
+                                    ),
+                                  ),
+                                ), //
+                                SizedBox(height: 20.sp),
+
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (ctx) {
+                                      return QuizScreenChem();
                                     }));
                                   },
                                   style: ElevatedButton.styleFrom(
@@ -240,7 +204,7 @@ class _SelectCategoryState extends State<SelectCategory> {
                                     ),
                                   ),
                                   child: Text(
-                                    "Start",
+                                    "Chemistry",
                                     style: TextStyle(
                                       fontFamily: 'Montserrat',
                                       color: Color(0xff1E1E1E),
@@ -253,46 +217,12 @@ class _SelectCategoryState extends State<SelectCategory> {
                                 ///////////////
                                 ///////////////
                                 SizedBox(height: 20.sp),
-                                Center(
-                                  child: Container(
-                                    width:
-                                        245.sp, //ResponsiveLay().scaleWidth(),
-                                    child: FittedBox(
-                                      child: RichText(
-                                        textAlign: TextAlign.center,
-                                        text: TextSpan(
-                                          text: "General",
-                                          style: TextStyle(
-                                            height: 1.4.sp,
-                                            fontFamily: 'Poppins',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize:
-                                                18.sp, // Responsive font size
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                              text: "Physics ",
-                                              style: TextStyle(
-                                                fontFamily: 'Montserrat',
-                                                color: mama,
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 18
-                                                    .sp, // Responsive font size
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 10.sp),
+
                                 ElevatedButton(
                                   onPressed: () {
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (ctx) {
-                                      return QuizScreenGeneral();
+                                      return QuizScreenBio();
                                     }));
                                   },
                                   style: ElevatedButton.styleFrom(
@@ -306,10 +236,10 @@ class _SelectCategoryState extends State<SelectCategory> {
                                     ),
                                   ),
                                   child: Text(
-                                    " Start",
+                                    "Biology",
                                     style: TextStyle(
                                       fontFamily: 'Montserrat',
-                                      color: nov,
+                                      color: Colors.blue,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18.sp,
                                     ),
@@ -320,47 +250,11 @@ class _SelectCategoryState extends State<SelectCategory> {
                                 ///////
                                 SizedBox(height: 20.sp),
 
-                                Center(
-                                  child: Container(
-                                    width:
-                                        245.sp, //ResponsiveLay().scaleWidth(),
-                                    child: FittedBox(
-                                      child: RichText(
-                                        textAlign: TextAlign.center,
-                                        text: TextSpan(
-                                          text: "Practice WAEC",
-                                          style: TextStyle(
-                                            height: 1.4.sp,
-                                            fontFamily: 'Poppins',
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize:
-                                                18.sp, // Responsive font size
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                              text: "Physics ",
-                                              style: TextStyle(
-                                                fontFamily: 'Montserrat',
-                                                color: mama,
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 18
-                                                    .sp, // Responsive font size
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 10.sp),
-
                                 ElevatedButton(
                                   onPressed: () {
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (ctx) {
-                                      return QuizScreenWaec2024();
+                                      return QuizScreenEng();
                                     }));
                                   },
                                   style: ElevatedButton.styleFrom(
@@ -374,10 +268,10 @@ class _SelectCategoryState extends State<SelectCategory> {
                                     ),
                                   ),
                                   child: Text(
-                                    " Start",
+                                    " English",
                                     style: TextStyle(
                                       fontFamily: 'Montserrat',
-                                      color: nov,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18.sp,
                                     ),

@@ -26,7 +26,7 @@ class QuizProvider with ChangeNotifier {
     }).toList();
 
     // Reset quiz state
-    currentQuestionIndex = 0;
+    currentQuestionIndex = 1;
     score = 0;
     answered = false;
 

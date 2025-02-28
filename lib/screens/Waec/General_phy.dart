@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../../data/waec_physics_2023.dart';
+//import '../../data/waec_physics_2023.dart';
 import '../../phyProvider/unit_quiz_provider.dart';
 
 // Import your model
@@ -21,7 +21,7 @@ class _QuizScreenState extends State<QuizScreenGeneral> {
     final quizProvider = Provider.of<QuizProvider>(context, listen: false);
     // You can load your units.json data here.WaecData2024
 
-    quizProvider.loadQuestions(WaecData2023);
+    //quizProvider.loadQuestions(WaecData2023);
   }
 
   @override
