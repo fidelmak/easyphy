@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../const/color.dart';
 import '../../data/quiz_data.dart';
 import '../displayScreen/display_screen_for_all.dart';
+import '../modes/levels/widgets/level_widget.dart';
 
 class OtherSelect extends StatefulWidget {
   @override
@@ -28,10 +29,16 @@ class _SelectCategoryState extends State<OtherSelect> {
       subtitle: "Physics formular",
       icon: Icons.functions,
       color: Color(0xffFF2F13),
-      route: PracticePhyScreen(
-        yourTest: 'Physics Formulars',
+      route: LevelSelect(levelWay: PracticePhyScreen(
+        yourTest: 'Physics  Basic',
         yourData: physicsFormulas,
-      ), // QupizFormular(),
+      ), levelWay2: PracticePhyScreen(
+        yourTest: 'Physics Intermediate',
+        yourData: physicsFormulas,
+      ), levelWay3:PracticePhyScreen(
+        yourTest: 'Physics  Advanced',
+        yourData: physicsFormulas,
+      ), title: 'Practice Formulas',)  // QupizFormular(),
     ),
     PracticeOption(
       title: "Laws",
@@ -78,6 +85,7 @@ class _SelectCategoryState extends State<OtherSelect> {
     bool isDesktop = screenWidth > 600;
 
     return Scaffold(
+      appBar:AppBar(),
       body: isDesktop ? _buildDesktopLayout() : _buildMobileLayout(),
     );
   }
