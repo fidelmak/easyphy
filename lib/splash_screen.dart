@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:easyphy/screens/onboard.dart';
+import 'package:easyphy/screens/onBoarding/onboard.dart';
+import 'package:easyphy/screens/student_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -74,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   )),
                   Center(
-                    child: Text("Gratitude to Muslim Community Grammar School",
+                    child: Text("Start Learning Today",
                         style: TextStyle(
                             fontSize: 12.sp,
                             fontStyle: FontStyle.italic,

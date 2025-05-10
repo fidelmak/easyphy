@@ -2,7 +2,7 @@ import 'package:easyphy/phyProvider/formulars_provider.dart';
 import 'package:easyphy/phyProvider/laws_provider.dart';
 import 'package:easyphy/phyProvider/unit_quiz_provider.dart';
 import 'package:easyphy/phyProvider/units_provider.dart';
-import 'package:easyphy/solution/phy.dart';
+import 'package:easyphy/solutions/phy.dart';
 import 'package:easyphy/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

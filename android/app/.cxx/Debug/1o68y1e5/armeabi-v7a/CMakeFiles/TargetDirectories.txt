@@ -1,0 +1,2 @@
+C:/Users/OGSTEP/easyphy/android/app/.cxx/Debug/1o68y1e5/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/OGSTEP/easyphy/android/app/.cxx/Debug/1o68y1e5/armeabi-v7a/CMakeFiles/rebuild_cache.dir
