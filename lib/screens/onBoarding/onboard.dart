@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:math' as math;
 
 import '../../data/quiz_data.dart';
-import '../../solutions/solution_view.dart';
+
 import '../../widgets/custom_button.dart';
 import '../displayScreen/display_explore_screen.dart';
 import '../displayScreen/display_screen_for_all.dart';
@@ -36,13 +36,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
       route: DisplayExploreSelectCategory(),
       color: Color(0xFF4A6572),
     ),
-    NavigationOption(
-      title: "Access Solutions",
-      description: "Test your physics knowledge",
-      icon: Icons.quiz,
-      route:SolutionSelectCategory(),
-      color: Color(0xFF344955),
-    ),
+ 
 
 
   NavigationOption(
@@ -459,9 +453,9 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                           ),
                           SizedBox(height: 12.sp),
                           _buildNavigationButton(
-                            navigationOptions[2].title,
-                            navigationOptions[2].icon,
-                            navigationOptions[2].color,
+                            navigationOptions[1].title,
+                            navigationOptions[1].icon,
+                            navigationOptions[1].color,
                             () => Navigator.push(
                                 context,
                                 MaterialPageRoute(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:easyphy/const/color.dart';
-import 'package:easyphy/data/quiz_data.dart';
+
 import 'package:easyphy/solutions/datap.dart';
 import 'package:easyphy/solutions/quizcard.dart';
 

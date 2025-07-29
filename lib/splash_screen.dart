@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:easyphy/screens/onBoarding/onboard.dart';
-import 'package:easyphy/screens/student_profile.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
