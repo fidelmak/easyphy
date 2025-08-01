@@ -28,12 +28,12 @@ Color textGrey = const Color(0xFFF5C6CB); // Muted red shade
 Color backgroundColor = const Color(0xFF4B1B1B); // Deep red for background
 const Color cardColor = Color(0xFF7E1E1E); // Dark red for cards
 
-const Color whiteColor = const Color(0xFFFFE4E1); // Lightest red
+const Color whiteColor = Color(0xFFFFE4E1); // Lightest red
 
-const Color primaryColor = const Color(0xFFD32F2F); // Primary red shade
-const Color secondary = const Color(0xFFB22222); // Firebrick red
-const Color bg = const Color(0xFFFFEBEE); // Very light red background
-const Color nov = const Color(0xFFFF2F13);
-const Color novText = const Color(0xffBA4C58);
-const Color novBtn = const Color(0xfff2f13);
-const Color mama = const Color(0xFFFFB000);
+const Color primaryColor = Color(0xFFD32F2F); // Primary red shade
+const Color secondary = Color(0xFFB22222); // Firebrick red
+const Color bg = Color(0xFFFFEBEE); // Very light red background
+const Color nov = Color(0xFFFF2F13);
+const Color novText = Color(0xffBA4C58);
+const Color novBtn = Color(0x0fff2f13);
+const Color mama = Color(0xFFFFB000);

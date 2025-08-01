@@ -10,6 +10,8 @@ import '../displayScreen/display_screen_for_all.dart';
 import '../modes/levels/widgets/level_widget.dart';
 
 class OtherSelect extends StatefulWidget {
+  const OtherSelect({super.key});
+
   @override
   _SelectCategoryState createState() => _SelectCategoryState();
 }
@@ -28,7 +30,7 @@ class _SelectCategoryState extends State<OtherSelect> {
       title: "Formulas",
       subtitle: "Physics formular",
       icon: Icons.functions,
-      color: Color(0xffFF2F13),
+      color: const Color(0xffFF2F13),
       route: LevelSelect(levelWay: PracticePhyScreen(
         yourTest: 'Physics  Basic',
         yourData: physicsFormulas,
@@ -45,7 +47,7 @@ class _SelectCategoryState extends State<OtherSelect> {
       subtitle: "Physics Laws",
       icon: Icons.balance,
       color: mama,
-      textColor: Color(0xff1E1E1E),
+      textColor: const Color(0xff1E1E1E),
       route: PracticePhyScreen(
         yourTest: 'Physics Laws',
         yourData: physicsLaws,
@@ -245,12 +247,12 @@ class _SelectCategoryState extends State<OtherSelect> {
                         onTap: () {
                           _pageController.animateToPage(
                             index,
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.easeInOut,
                           );
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
+                          duration: const Duration(milliseconds: 300),
                           width: _currentPage == index ? 24.sp : 8.sp,
                           height: 8.sp,
                           margin: EdgeInsets.symmetric(horizontal: 4.sp),
@@ -299,7 +301,7 @@ class _SelectCategoryState extends State<OtherSelect> {
               BoxShadow(
                 color: option.color.withOpacity(0.3),
                 blurRadius: 8,
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
               ),
             ],
           ),
@@ -339,7 +341,7 @@ class _SelectCategoryState extends State<OtherSelect> {
   }
 
   Widget _buildMobileOptionCard(PracticeOption option) {
-    return Container(
+    return SizedBox(
       height: 60.sp,
       child: Center(
         child: Text(

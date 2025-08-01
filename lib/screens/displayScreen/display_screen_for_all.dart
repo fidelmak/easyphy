@@ -186,7 +186,7 @@ class _QuizScreenState extends State<PracticePhyScreen>
                     child: LinearProgressIndicator(
                       value: (quizProvider.currentQuestionIndex + 1) / quizProvider.questions.length,
                       backgroundColor: Colors.grey[300],
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+                      valueColor: const AlwaysStoppedAnimation<Color>(Colors.black),
                       minHeight: isDesktop ? 2.sp : 6.0,
                     ),
                   ),
@@ -263,7 +263,7 @@ class _QuizScreenState extends State<PracticePhyScreen>
                   ),
 
                   // Space for floating action button
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                 ],
               ),
             ),

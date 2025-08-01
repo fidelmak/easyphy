@@ -33,7 +33,7 @@ class _SelectCategoryState extends State<ChemSelect> {
       title: "Equation and Formula",
       subtitle: "Chemistry formula",
       icon: Icons.functions,
-      color: Color(0xffFF2F13),
+      color: const Color(0xffFF2F13),
       route: PracticePhyScreen(
         yourTest: 'Physics Formulars',
         yourData: ChemFormular,
@@ -44,7 +44,7 @@ class _SelectCategoryState extends State<ChemSelect> {
       subtitle: "Chemistry Laws",
       icon: Icons.balance,
       color: mama,
-      textColor: Color(0xff1E1E1E),
+      textColor: const Color(0xff1E1E1E),
       route: PracticePhyScreen(
         yourTest: 'Chemistry Laws',
         yourData: ChemLaw,
@@ -243,12 +243,12 @@ class _SelectCategoryState extends State<ChemSelect> {
                         onTap: () {
                           _pageController.animateToPage(
                             index,
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.easeInOut,
                           );
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
+                          duration: const Duration(milliseconds: 300),
                           width: _currentPage == index ? 24.sp : 8.sp,
                           height: 8.sp,
                           margin: EdgeInsets.symmetric(horizontal: 4.sp),
@@ -297,7 +297,7 @@ class _SelectCategoryState extends State<ChemSelect> {
               BoxShadow(
                 color: option.color.withOpacity(0.3),
                 blurRadius: 8,
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
               ),
             ],
           ),
@@ -337,7 +337,7 @@ class _SelectCategoryState extends State<ChemSelect> {
   }
 
   Widget _buildMobileOptionCard(PracticeOption option) {
-    return Container(
+    return SizedBox(
       height: 60.sp,
       child: Center(
         child: Text(

@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class QuizTimer extends StatefulWidget {
   final int examDurationInSeconds;
 
-  const QuizTimer({Key? key, required this.examDurationInSeconds}) : super(key: key);
+  const QuizTimer({super.key, required this.examDurationInSeconds});
 
   @override
   State<QuizTimer> createState() => _QuizTimerState();

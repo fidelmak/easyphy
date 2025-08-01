@@ -12,6 +12,8 @@ import '../displayScreen/display_screen_for_all.dart';
 import '../basicCategory/other_select.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
@@ -34,7 +36,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
       description: "Learn formulas, laws and definitions",
       icon: Icons.assignment,
       route: DisplayExploreSelectCategory(),
-      color: Color(0xFF4A6572),
+      color: const Color(0xFF4A6572),
     ),
  
 
@@ -44,7 +46,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
       description: "Practice with past exam questions",
       icon: Icons.explore,
       route: SelectCategory(),
-      color: Color(0xFF232F34),
+      color: const Color(0xFF232F34),
     ),
   ];
 
@@ -85,12 +87,12 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     // Initialize animation controllers
     _floatingObjectsController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 20),
+      duration: const Duration(seconds: 20),
     )..repeat();
 
     _scaleController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
     );
 
     _scaleAnimation = Tween<double>(begin: 0.95, end: 1).animate(
@@ -200,7 +202,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                   // Navigation options
                   ...navigationOptions
                       .map((option) => _buildDesktopNavigationOption(option))
-                      .toList(),
+                      ,
                 ],
               ),
             ),
@@ -286,7 +288,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         Column(
           children: [
             // Top section with interactive background
-            Container(
+            SizedBox(
               height: screenHeight * 0.60,
               child: Stack(
                 children: [
@@ -323,7 +325,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                             right: 0,
                             child: AnimatedOpacity(
                               opacity: _currentPage == index ? 1.0 : 0.0,
-                              duration: Duration(milliseconds: 400),
+                              duration: const Duration(milliseconds: 400),
                               child: Column(
                                 children: [
                                   Icon(
@@ -347,7 +349,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                                         Shadow(
                                           blurRadius: 10.0,
                                           color: Colors.black.withOpacity(0.5),
-                                          offset: Offset(2, 2),
+                                          offset: const Offset(2, 2),
                                         ),
                                       ],
                                     ),
@@ -371,7 +373,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
             // Bottom section with information and buttons
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                 ),
                 child: Padding(
@@ -403,19 +405,19 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                                 onTap: () {
                                   _pageController.animateToPage(
                                     index,
-                                    duration: Duration(milliseconds: 300),
+                                    duration: const Duration(milliseconds: 300),
                                     curve: Curves.easeInOut,
                                   );
                                 },
                                 child: AnimatedContainer(
-                                  duration: Duration(milliseconds: 300),
+                                  duration: const Duration(milliseconds: 300),
                                   width: _currentPage == index ? 30.sp : 10.sp,
                                   height: 4.sp,
                                   margin:
                                       EdgeInsets.symmetric(horizontal: 3.sp),
                                   decoration: BoxDecoration(
                                     color: _currentPage == index
-                                        ? Color(0xFF344955)
+                                        ? const Color(0xFF344955)
                                         : Colors.grey.shade300,
                                     borderRadius: BorderRadius.circular(5.r),
                                   ),
@@ -478,7 +480,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           right: 20.sp,
           child: AnimatedOpacity(
             opacity: _isLastPage ? 1.0 : 0.0,
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             child: ScaleTransition(
               scale: _scaleAnimation,
               child: FloatingActionButton.extended(
@@ -488,9 +490,9 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     MaterialPageRoute(builder: (ctx) => SelectCategory()),
                   );
                 },
-                backgroundColor: Color(0xFF344955),
-                label: Text("Get Started"),
-                icon: Icon(Icons.arrow_forward),
+                backgroundColor: const Color(0xFF344955),
+                label: const Text("Get Started"),
+                icon: const Icon(Icons.arrow_forward),
               ),
             ),
           ),
@@ -538,7 +540,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 fontSize: 16.sp,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Icon(
               Icons.arrow_forward,
               color: color,

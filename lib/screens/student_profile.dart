@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 
 class StudentHomePage extends StatefulWidget {
-  const StudentHomePage({Key? key}) : super(key: key);
+  const StudentHomePage({super.key});
 
   @override
   State<StudentHomePage> createState() => _StudentHomePageState();
@@ -41,7 +41,7 @@ class _StudentHomePageState extends State<StudentHomePage> with SingleTickerProv
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/Neutron.jpg'),
+            image: const AssetImage('assets/images/Neutron.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.7), // Darkens the image
@@ -97,11 +97,11 @@ class _StudentHomePageState extends State<StudentHomePage> with SingleTickerProv
                     color: Theme.of(context).primaryColor,
                     width: 3,
                   ),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.black26,
                       blurRadius: 8,
-                      offset: const Offset(0, 3),
+                      offset: Offset(0, 3),
                     ),
                   ],
                 ),
@@ -398,13 +398,13 @@ class _StudentHomePageState extends State<StudentHomePage> with SingleTickerProv
   }
   Widget _buildAnimatedBottomNavigationBar() {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.black,
         boxShadow: [
           BoxShadow(
             color: Colors.red,
             blurRadius: 10,
-            offset: const Offset(0, -5),
+            offset: Offset(0, -5),
           ),
         ],
       ),

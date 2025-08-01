@@ -27,11 +27,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize:
-          Size(375, 812), // Adjust based on your design (default iPhone X)
+          const Size(375, 812), // Adjust based on your design (default iPhone X)
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {

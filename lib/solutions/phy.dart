@@ -26,6 +26,8 @@ class QuizState with ChangeNotifier {
 }
 
 class PhyQuizSolutionScreen extends StatefulWidget {
+  const PhyQuizSolutionScreen({super.key});
+
   @override
   _PhyQuizSolutionScreenState createState() => _PhyQuizSolutionScreenState();
 }
@@ -43,7 +45,7 @@ class _PhyQuizSolutionScreenState extends State<PhyQuizSolutionScreen> {
       _showError = false;
     });
 
-    await Future.delayed(Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 500));
 
     if (_passwordController.text == _correctPassword) {
       setState(() {
@@ -65,7 +67,7 @@ class _PhyQuizSolutionScreenState extends State<PhyQuizSolutionScreen> {
       barrierDismissible: false,
       builder: (_) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        title: Text("🔐 Enter Access Code"),
+        title: const Text("🔐 Enter Access Code"),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -74,23 +76,23 @@ class _PhyQuizSolutionScreenState extends State<PhyQuizSolutionScreen> {
               obscureText: true,
               decoration: InputDecoration(
                 hintText: "Enter password",
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 errorText: _showError ? "Incorrect password!" : null,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             if (_isLoading)
-              CircularProgressIndicator(strokeWidth: 2)
+              const CircularProgressIndicator(strokeWidth: 2)
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text("Cancel"),
+            child: const Text("Cancel"),
           ),
           ElevatedButton(
             onPressed: _checkPassword,
-            child: Text("Unlock"),
+            child: const Text("Unlock"),
           ),
         ],
       ),
@@ -115,12 +117,12 @@ class _PhyQuizSolutionScreenState extends State<PhyQuizSolutionScreen> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
 
-        title: Text("Physics Solutions", style: TextStyle(color: Colors.white),),
+        title: const Text("Physics Solutions", style: TextStyle(color: Colors.white),),
         centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         elevation: 0,
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [mama, nov],
               begin: Alignment.topLeft,
@@ -133,7 +135,7 @@ class _PhyQuizSolutionScreenState extends State<PhyQuizSolutionScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/Neutron.jpg"),//, // Your background image
+            image: const AssetImage("assets/images/Neutron.jpg"),//, // Your background image
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.7), // Dark overlay for better text visibility
@@ -146,7 +148,7 @@ class _PhyQuizSolutionScreenState extends State<PhyQuizSolutionScreen> {
           builder: (context, quizState, _) {
             final index = quizState.currentIndex;
             return AnimatedSwitcher(
-              duration: Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
               transitionBuilder: (child, animation) =>
                   FadeTransition(opacity: animation, child: child),
               child: Padding(
@@ -156,7 +158,7 @@ class _PhyQuizSolutionScreenState extends State<PhyQuizSolutionScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       height: MediaQuery.of(context).size.height /1.3.sp,
                       child: QuizCard(
                         id: "${index + 1}",
@@ -164,23 +166,23 @@ class _PhyQuizSolutionScreenState extends State<PhyQuizSolutionScreen> {
                         solution: quizPdata[index]['solution']!,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
                           onPressed: quizState.prevQuestion,
-                          icon: Icon(Icons.chevron_left_rounded, size: 40),
+                          icon: const Icon(Icons.chevron_left_rounded, size: 40),
                           color: Colors.grey.shade700,
                           tooltip: "Previous",
                         ),
                         Text(
                           "${index + 1} / ${quizPdata.length}",
-                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                         IconButton(
                           onPressed: quizState.nextQuestion,
-                          icon: Icon(Icons.chevron_right_rounded, size: 40),
+                          icon: const Icon(Icons.chevron_right_rounded, size: 40),
                           color: mama,
                           tooltip: "Next",
                         ),
@@ -204,25 +206,25 @@ class _PhyQuizSolutionScreenState extends State<PhyQuizSolutionScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.lock_outline_rounded, size: 80, color: Colors.grey),
-            SizedBox(height: 20),
-            Text(
+            const Icon(Icons.lock_outline_rounded, size: 80, color: Colors.grey),
+            const SizedBox(height: 20),
+            const Text(
               "Access Restricted",
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               "This section is protected. Please enter the password to proceed.",
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: _showPasswordDialog,
-              icon: Icon(Icons.lock_open_rounded),
-              label: Text("Enter Password"),
+              icon: const Icon(Icons.lock_open_rounded),
+              label: const Text("Enter Password"),
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
               ),

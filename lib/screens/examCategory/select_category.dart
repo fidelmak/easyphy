@@ -14,6 +14,8 @@ import '../../widgets/custom_button.dart';
 import '../displayScreen/display_screen_for_all.dart';
 
 class SelectCategory extends StatefulWidget {
+  const SelectCategory({super.key});
+
   @override
   _SelectCategoryState createState() => _SelectCategoryState();
 }
@@ -26,7 +28,7 @@ class _SelectCategoryState extends State<SelectCategory> {
     SubjectOption(
       title: "Physics",
       icon: Icons.science,
-      color: Color(0xFFFF2F13),
+      color: const Color(0xFFFF2F13),
       route: PracticePhyScreen(
         yourTest: 'Physics Exam',
         yourData: JambDataone2024,
@@ -199,12 +201,12 @@ class _SelectCategoryState extends State<SelectCategory> {
                         onTap: () {
                           _pageController.animateToPage(
                             index,
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.easeInOut,
                           );
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
+                          duration: const Duration(milliseconds: 300),
                           width: _currentPage == index ? 24.sp : 8.sp,
                           height: 8.sp,
                           margin: EdgeInsets.symmetric(horizontal: 4.sp),
@@ -253,7 +255,7 @@ class _SelectCategoryState extends State<SelectCategory> {
               BoxShadow(
                 color: subject.color.withOpacity(0.3),
                 blurRadius: 8,
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
               ),
             ],
           ),

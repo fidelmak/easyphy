@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import '../../phyProvider/unit_quiz_provider.dart';
 
 class QuizResultScreen extends StatefulWidget {
+  const QuizResultScreen({super.key});
+
   @override
   State<QuizResultScreen> createState() => _QuizResultScreenState();
 }
@@ -15,16 +17,16 @@ class _QuizResultScreenState extends State<QuizResultScreen> {
     final quizProvider = Provider.of<QuizProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Quiz Result')),
+      appBar: AppBar(title: const Text('Quiz Result')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Your score: ${quizProvider.score}/${quizProvider.questions.length}',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             quizProvider.passed
                 ? CustomButton(
                     text: 'Go Back to Display Screen',

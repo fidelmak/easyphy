@@ -12,6 +12,8 @@ import '../basicCategory/other_select.dart';
 
 
 class DisplayExploreSelectCategory extends StatefulWidget {
+  const DisplayExploreSelectCategory({super.key});
+
   @override
   _DisplayExploreSelectCategoryState createState() => _DisplayExploreSelectCategoryState();
 }
@@ -32,7 +34,7 @@ class _DisplayExploreSelectCategoryState extends State<DisplayExploreSelectCateg
       title: "Explore Chemistry",
       icon: Icons.bolt_rounded,
       color: Colors.green,
-      route: ChemSelect(),
+      route: const ChemSelect(),
     ),
     SubjectOption(
       title: "Explore Biology",
@@ -189,12 +191,12 @@ class _DisplayExploreSelectCategoryState extends State<DisplayExploreSelectCateg
                           onTap: () {
                             _pageController.animateToPage(
                               index,
-                              duration: Duration(milliseconds: 300),
+                              duration: const Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
                             );
                           },
                           child: AnimatedContainer(
-                            duration: Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             width: _currentPage == index ? 24.sp : 8.sp,
                             height: 8.sp,
                             margin: EdgeInsets.symmetric(horizontal: 4.sp),
@@ -244,7 +246,7 @@ class _DisplayExploreSelectCategoryState extends State<DisplayExploreSelectCateg
               BoxShadow(
                 color: subject.color.withOpacity(0.3),
                 blurRadius: 8,
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
               ),
             ],
           ),

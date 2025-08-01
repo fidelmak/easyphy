@@ -78,7 +78,7 @@ class QuizProvider with ChangeNotifier {
       // Cancel timer before navigating away
       cancelTimer();
 
-      Future.delayed(Duration(milliseconds: 500), () {
+      Future.delayed(const Duration(milliseconds: 500), () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => QuizResultScreen()),
@@ -136,11 +136,11 @@ class QuizProvider with ChangeNotifier {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Quiz Completed'),
+          title: const Text('Quiz Completed'),
           content: Text('Your final score: $score out of ${questions.length}'),
           actions: [
             TextButton(
-              child: Text('OK'),
+              child: const Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
                 // You could navigate back to home screen or to a detailed results page
