@@ -48,6 +48,14 @@ class _OnboardingScreenState extends State<OnboardingScreen>
       route: SelectCategory(),
       color: const Color(0xFF232F34),
     ),
+  NavigationOption(
+      title: "Pratice Quiz",
+      description: "Practice with past exam questions",
+      icon: Icons.explore,
+      route: OtherSelect(),
+      color: const Color(0xFF232F34),
+    ),
+   
   ];
 
   final List<String> images = [
@@ -455,9 +463,9 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                           ),
                           SizedBox(height: 12.sp),
                           _buildNavigationButton(
-                            navigationOptions[1].title,
-                            navigationOptions[1].icon,
-                            navigationOptions[1].color,
+                            navigationOptions[2].title,
+                            navigationOptions[2].icon,
+                            navigationOptions[2].color,
                             () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
