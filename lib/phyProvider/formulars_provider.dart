@@ -20,8 +20,6 @@ class PhysicsFormulaProvider extends ChangeNotifier {
 
       _formulas = data.map((item) => PhysicsFormula.fromJson(item)).toList();
       notifyListeners();
-    } catch (e) {
-      print('Error loading formulas: $e');
-    }
+    } catch (e) {}
   }
 }

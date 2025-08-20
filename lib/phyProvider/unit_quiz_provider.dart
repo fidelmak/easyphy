@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../model/unit_quiz_model.dart';
-import '../screens/allQuiz/quiz_result.dart';
+import '../screens/quizresult/quiz_result.dart';
 
 class QuizProvider with ChangeNotifier {
   String selectedOption = '';
@@ -27,8 +27,8 @@ class QuizProvider with ChangeNotifier {
         id: item['id']?.toString() ?? 'N/A', // Ensure it's always a String
         name: item['name'] ?? 'Unknown Question',
         options: (item['options'] as List<dynamic>?)
-            ?.map((option) => option.toString())
-            .toList() ??
+                ?.map((option) => option.toString())
+                .toList() ??
             [], // Ensure it's always a List<String>
         correctAnswer: item['correctAnswer'] ?? '',
       );

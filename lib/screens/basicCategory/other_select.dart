@@ -27,21 +27,26 @@ class _SelectCategoryState extends State<OtherSelect> {
 
   final List<PracticeOption> practiceOptions = [
     PracticeOption(
-      title: "Formulas",
-      subtitle: "Physics formular",
-      icon: Icons.functions,
-      color: const Color(0xffFF2F13),
-      route: LevelSelect(levelWay: PracticePhyScreen(
-        yourTest: 'Physics  Basic',
-        yourData: physicsFormulas,
-      ), levelWay2: PracticePhyScreen(
-        yourTest: 'Physics Intermediate',
-        yourData: physicsFormulas,
-      ), levelWay3:PracticePhyScreen(
-        yourTest: 'Physics  Advanced',
-        yourData: physicsFormulas,
-      ), title: 'Practice Formulas',)  // QupizFormular(),
-    ),
+        title: "Formulas",
+        subtitle: "Physics formular",
+        icon: Icons.functions,
+        color: const Color(0xffFF2F13),
+        route: LevelSelect(
+          levelWay: PracticePhyScreen(
+            yourTest: 'Physics  Basic',
+            yourData: physicsFormulas,
+          ),
+          levelWay2: PracticePhyScreen(
+            yourTest: 'Physics Intermediate',
+            yourData: physicsFormulas,
+          ),
+          levelWay3: PracticePhyScreen(
+            yourTest: 'Physics  Advanced',
+            yourData: physicsFormulas,
+          ),
+          title: 'Practice Formulas',
+        ) // QupizFormular(),
+        ),
     PracticeOption(
       title: "Laws",
       subtitle: "Physics Laws",
@@ -57,8 +62,8 @@ class _SelectCategoryState extends State<OtherSelect> {
       title: "Definitions",
       subtitle: "Physics Definitions",
       icon: Icons.menu_book,
-      color: mama,
-      textColor: nov,
+      color: Colors.green,
+      textColor: Colors.white,
       route: PracticePhyScreen(
         yourTest: 'Physics Definitions',
         yourData: physicsDefinitions,
@@ -87,7 +92,6 @@ class _SelectCategoryState extends State<OtherSelect> {
     bool isDesktop = screenWidth > 600;
 
     return Scaffold(
-      appBar:AppBar(),
       body: isDesktop ? _buildDesktopLayout() : _buildMobileLayout(),
     );
   }

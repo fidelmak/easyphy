@@ -143,7 +143,8 @@ class _QuizScreenState extends State<PracticePhyScreen>
           }
 
           // Handle question index change detection
-          if (_lastQuestionIndex != quizProvider.currentQuestionIndex && !_isTransitioning) {
+          if (_lastQuestionIndex != quizProvider.currentQuestionIndex &&
+              !_isTransitioning) {
             _lastQuestionIndex = quizProvider.currentQuestionIndex;
             // Don't animate on first load
             if (_lastQuestionIndex > 0 && mounted) {
@@ -164,7 +165,8 @@ class _QuizScreenState extends State<PracticePhyScreen>
     );
   }
 
-  Widget _buildQuizContent(BuildContext context, QuizProvider quizProvider, bool isDesktop) {
+  Widget _buildQuizContent(
+      BuildContext context, QuizProvider quizProvider, bool isDesktop) {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -177,16 +179,20 @@ class _QuizScreenState extends State<PracticePhyScreen>
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: isDesktop ? 20.sp : 16.0),
+              padding:
+                  EdgeInsets.symmetric(horizontal: isDesktop ? 20.sp : 16.0),
               child: Column(
                 children: [
                   // Progress indicator
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: isDesktop ? 5.sp : 16.0),
+                    padding:
+                        EdgeInsets.symmetric(vertical: isDesktop ? 5.sp : 16.0),
                     child: LinearProgressIndicator(
-                      value: (quizProvider.currentQuestionIndex + 1) / quizProvider.questions.length,
+                      value: (quizProvider.currentQuestionIndex + 1) /
+                          quizProvider.questions.length,
                       backgroundColor: Colors.grey[300],
-                      valueColor: const AlwaysStoppedAnimation<Color>(Colors.black),
+                      valueColor:
+                          const AlwaysStoppedAnimation<Color>(Colors.black),
                       minHeight: isDesktop ? 2.sp : 6.0,
                     ),
                   ),
@@ -202,7 +208,8 @@ class _QuizScreenState extends State<PracticePhyScreen>
                         ),
                         decoration: BoxDecoration(
                           color: Colors.black,
-                          borderRadius: BorderRadius.circular(isDesktop ? 3.sp : 8.0),
+                          borderRadius:
+                              BorderRadius.circular(isDesktop ? 3.sp : 8.0),
                         ),
                         child: Text(
                           quizProvider.currentQuestion.id,
@@ -225,7 +232,9 @@ class _QuizScreenState extends State<PracticePhyScreen>
                   ),
 
                   // Timer
-                  QuizTimer(examDurationInSeconds: quizProvider.questions.length * 40),
+                  QuizTimer(
+                      examDurationInSeconds:
+                          quizProvider.questions.length * 40),
 
                   // Question card
                   Expanded(
@@ -234,7 +243,8 @@ class _QuizScreenState extends State<PracticePhyScreen>
                       child: Card(
                         elevation: 4,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(isDesktop ? 5.sp : 16.0),
+                          borderRadius:
+                              BorderRadius.circular(isDesktop ? 5.sp : 16.0),
                         ),
                         child: Container(
                           width: double.infinity,
@@ -296,40 +306,45 @@ class _QuizScreenState extends State<PracticePhyScreen>
       child: Column(
         children: List.generate(
           quizProvider.currentQuestion.options.length,
-              (index) => _buildOptionItem(quizProvider, index, isDesktop),
+          (index) => _buildOptionItem(quizProvider, index, isDesktop),
         ),
       ),
     );
   }
 
-  Widget _buildOptionItem(QuizProvider quizProvider, int index, bool isDesktop) {
+  Widget _buildOptionItem(
+      QuizProvider quizProvider, int index, bool isDesktop) {
     String option = quizProvider.currentQuestion.options[index];
     bool isCorrect = quizProvider.currentQuestion.isCorrect(option);
-    bool isSelected = quizProvider.answered && quizProvider.selectedOption == option;
+    bool isSelected =
+        quizProvider.answered && quizProvider.selectedOption == option;
 
     return Padding(
       key: ValueKey('option-$index-${quizProvider.currentQuestionIndex}'),
       padding: EdgeInsets.symmetric(vertical: isDesktop ? 2.sp : 8.0),
-      child: GestureDetector( // Using GestureDetector instead of InkWell for better control
-        onTap: quizProvider.answered ? null : () {
-          if (!mounted) return;
-          quizProvider.checkAnswer(option);
-          _animateAnswer();
-        },
+      child: GestureDetector(
+        // Using GestureDetector instead of InkWell for better control
+        onTap: quizProvider.answered
+            ? null
+            : () {
+                if (!mounted) return;
+                quizProvider.checkAnswer(option);
+                _animateAnswer();
+              },
         child: Container(
           padding: EdgeInsets.all(isDesktop ? 5.sp : 16.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(isDesktop ? 3.sp : 10.0),
             color: quizProvider.answered
                 ? (isCorrect
-                ? Colors.green[700]
-                : (isSelected ? Colors.red[700] : Colors.white))
+                    ? Colors.green[700]
+                    : (isSelected ? Colors.red[700] : Colors.white))
                 : Colors.white,
             border: Border.all(
               color: quizProvider.answered
                   ? (isCorrect
-                  ? Colors.green[700]!
-                  : (isSelected ? Colors.red[700]! : Colors.grey[300]!))
+                      ? Colors.green[700]!
+                      : (isSelected ? Colors.red[700]! : Colors.grey[300]!))
                   : Colors.grey[300]!,
               width: 1.5,
             ),
@@ -350,14 +365,16 @@ class _QuizScreenState extends State<PracticePhyScreen>
                   shape: BoxShape.circle,
                   color: quizProvider.answered
                       ? (isCorrect
-                      ? Colors.green[700]
-                      : (isSelected ? Colors.red[700] : Colors.grey[200]))
+                          ? Colors.green[700]
+                          : (isSelected ? Colors.red[700] : Colors.grey[200]))
                       : Colors.grey[200],
                   border: Border.all(
                     color: quizProvider.answered
                         ? (isCorrect
-                        ? Colors.green[100]!
-                        : (isSelected ? Colors.red[100]! : Colors.grey[400]!))
+                            ? Colors.green[100]!
+                            : (isSelected
+                                ? Colors.red[100]!
+                                : Colors.grey[400]!))
                         : Colors.grey[400]!,
                   ),
                 ),

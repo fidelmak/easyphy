@@ -38,24 +38,20 @@ class _OnboardingScreenState extends State<OnboardingScreen>
       route: DisplayExploreSelectCategory(),
       color: const Color(0xFF4A6572),
     ),
- 
-
-
-  NavigationOption(
-      title: "Science Exams",
+    NavigationOption(
+      title: "Take Physics Exams",
       description: "Practice with past exam questions",
       icon: Icons.explore,
       route: SelectCategory(),
       color: const Color(0xFF232F34),
     ),
-  NavigationOption(
-      title: "Pratice Quiz",
-      description: "Practice with past exam questions",
+    NavigationOption(
+      title: "Speak With Experts",
+      description: "Ask questions and get answers",
       icon: Icons.explore,
       route: OtherSelect(),
       color: const Color(0xFF232F34),
     ),
-   
   ];
 
   final List<String> images = [
@@ -65,15 +61,15 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   ];
 
   final List<String> bText = [
-    "Learn Physics Units",
-    "Take Quiz",
-    "Learn Formulas",
+    "Engage \n with Physics \n concepts",
+    "Take \n basic quizzes",
+    "Learn \n formulas and laws",
   ];
 
   final List<String> secondText = [
-    "Learn The Basics of Physics Units",
-    "Test Your Knowledge with our Quiz",
-    "Learn Formulas for Physics",
+    "Learn the basics of physics and explore its concepts",
+    "Test your knowledge with interactive quizzes",
+    "Learn formulas, laws and definitions",
   ];
 
   // Floating icons for physics-themed animation
@@ -209,8 +205,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
 
                   // Navigation options
                   ...navigationOptions
-                      .map((option) => _buildDesktopNavigationOption(option))
-                      ,
+                      .map((option) => _buildDesktopNavigationOption(option)),
                 ],
               ),
             ),
@@ -224,7 +219,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     return Padding(
       padding: EdgeInsets.only(bottom: 16.sp),
       child: Material(
-        color: Colors.transparent,
+        color: Colors.red,
         child: InkWell(
           onTap: () {
             Navigator.push(
@@ -351,7 +346,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                                     style: TextStyle(
                                       fontFamily: 'ZCOOLXiaoWei',
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 28.sp,
+                                      fontSize: 32.sp,
                                       color: Colors.white,
                                       shadows: [
                                         Shadow(
@@ -498,8 +493,11 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     MaterialPageRoute(builder: (ctx) => SelectCategory()),
                   );
                 },
-                backgroundColor: const Color(0xFF344955),
-                label: const Text("Get Started"),
+                backgroundColor: Colors.white,
+                label: const Text(
+                  "Get Started",
+                  style: TextStyle(color: Colors.black),
+                ),
                 icon: const Icon(Icons.arrow_forward),
               ),
             ),

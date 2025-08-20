@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../model/unit_quiz_model.dart';
-import '../../screens/allQuiz/quiz_result.dart';
+import '../../screens/quizresult/quiz_result.dart';
 
 // Make sure to import the model file
 

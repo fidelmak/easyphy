@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../const/color.dart';
-import '../../data/Chemistry.dart';
-import '../../data/biology.dart';
-import '../../data/english.dart';
+
 import '../../data/jamb_physics_one_2024.dart';
 import '../../widgets/custom_button.dart';
 
@@ -26,34 +24,32 @@ class _SelectCategoryState extends State<SelectCategory> {
 
   final List<SubjectOption> subjects = [
     SubjectOption(
-      title: "Physics",
+      title: "SS1 Physics Exam",
       icon: Icons.science,
       color: const Color(0xFFFF2F13),
       route: PracticePhyScreen(
-        yourTest: 'Physics Exam',
+        yourTest: 'SS1 Physics Exam',
         yourData: JambDataone2024,
       ), // PracticePhyScreen() ,
     ),
-
     SubjectOption(
-      title: "Chemistry",
+      title: "SS2 Physics Exam",
       icon: Icons.science_outlined,
       color: Colors.green,
       route: PracticePhyScreen(
-        yourTest: 'Chemistry Exam',
-        yourData: chemData2024,
-      ), //PracticeScreen(yourTest: 'Chemistry Exam', yourData: chemData2024,) ,
+        yourTest: 'SS2 Physics Exam',
+        yourData: JambDataone2024,
+      ), //PracticeScreen(yourTest: 'Chemistry Exam', yourData: JambDataone2024,) ,
     ),
     SubjectOption(
-      title: "Biology",
+      title: "  SS3 Physics Exam",
       icon: Icons.biotech,
       color: Colors.blue,
       route: PracticePhyScreen(
-        yourTest: 'Biology Exam',
-        yourData: BioData2024,
+        yourTest: 'SS3 Physics Exam',
+        yourData: JambDataone2024,
       ),
     ),
-
   ];
 
   final List<String> backgroundImages = [
@@ -92,7 +88,7 @@ class _SelectCategoryState extends State<SelectCategory> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "Select Subject",
+                  "Select Your Exam Category",
                   style: TextStyle(
                     fontSize: 28.sp,
                     fontWeight: FontWeight.bold,
@@ -162,7 +158,7 @@ class _SelectCategoryState extends State<SelectCategory> {
               Padding(
                 padding: EdgeInsets.all(16.sp),
                 child: Text(
-                  "Select Your Subject",
+                  "Select Your Exam Class",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24.sp,

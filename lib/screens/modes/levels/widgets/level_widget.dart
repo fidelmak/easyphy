@@ -16,7 +16,8 @@ class LevelSelect extends StatefulWidget {
       {super.key,
       required this.levelWay,
       required this.levelWay2,
-      required this.levelWay3, required this.title});
+      required this.levelWay3,
+      required this.title});
 
   @override
   _BasicLevelSelectState createState() => _BasicLevelSelectState();
@@ -67,7 +68,6 @@ class _BasicLevelSelectState extends State<LevelSelect> {
     bool isDesktop = screenWidth > 600;
 
     return Scaffold(
-      appBar:AppBar(),
       body: isDesktop ? _buildDesktopLayout() : _buildMobileLayout(),
     );
   }

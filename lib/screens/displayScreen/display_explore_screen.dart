@@ -1,48 +1,40 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../basicCategory/biologySelect.dart';
-import '../basicCategory/chemScreen.dart';
 import '../basicCategory/other_select.dart';
-
-
-
-
-
 
 class DisplayExploreSelectCategory extends StatefulWidget {
   const DisplayExploreSelectCategory({super.key});
 
   @override
-  _DisplayExploreSelectCategoryState createState() => _DisplayExploreSelectCategoryState();
+  _DisplayExploreSelectCategoryState createState() =>
+      _DisplayExploreSelectCategoryState();
 }
 
-class _DisplayExploreSelectCategoryState extends State<DisplayExploreSelectCategory> {
+class _DisplayExploreSelectCategoryState
+    extends State<DisplayExploreSelectCategory> {
   int _currentPage = 0;
   final PageController _pageController = PageController();
 
   final List<SubjectOption> subjects = [
-
     SubjectOption(
-      title: "Explore Physics",
+      title: "SS1 Physics",
       icon: Icons.lightbulb,
       color: Colors.amber,
       route: OtherSelect(),
     ),
     SubjectOption(
-      title: "Explore Chemistry",
+      title: "SS2 Physics",
       icon: Icons.bolt_rounded,
       color: Colors.green,
-      route: const ChemSelect(),
+      route: OtherSelect(),
     ),
     SubjectOption(
-      title: "Explore Biology",
+      title: "SS3 Physics",
       icon: Icons.bloodtype,
       color: Colors.blue,
-      route:  BiologySelect(),
+      route: OtherSelect(),
     ),
-
   ];
 
   final List<String> backgroundImages = [
@@ -52,56 +44,9 @@ class _DisplayExploreSelectCategoryState extends State<DisplayExploreSelectCateg
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    bool isDesktop = screenWidth > 600;
 
     return Scaffold(
-      body: isDesktop ? _buildDesktopLayout() : _buildMobileLayout(),
-    );
-  }
-
-  Widget _buildDesktopLayout() {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Colors.blue.shade900, Colors.indigo.shade900],
-        ),
-      ),
-      child: Center(
-        child: Card(
-          elevation: 8,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.r),
-          ),
-          margin: EdgeInsets.all(32.sp),
-          child: Padding(
-            padding: EdgeInsets.all(24.sp),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  "Select Subject",
-                  style: TextStyle(
-                    fontSize: 28.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                ),
-                SizedBox(height: 30.sp),
-                Wrap(
-                  spacing: 16.sp,
-                  runSpacing: 16.sp,
-                  alignment: WrapAlignment.center,
-                  children: subjects
-                      .map((subject) => _buildSubjectCard(subject, true))
-                      .toList(),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+      body: _buildMobileLayout(),
     );
   }
 
@@ -144,75 +89,73 @@ class _DisplayExploreSelectCategoryState extends State<DisplayExploreSelectCateg
 
         // Content
         SafeArea(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(16.sp),
-                  child: Text(
-                    "Select Your Subject",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24.sp,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Montserrat',
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(16.sp),
+                child: Text(
+                  "Select Your Class ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Montserrat',
+                  ),
+                ),
+              ),
+
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.sp),
+                  child: Center(
+                    child: ListView.builder(
+                      padding: EdgeInsets.symmetric(vertical: 8.sp),
+                      itemCount: subjects.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 16.sp),
+                          child: _buildSubjectCard(subjects[index], false),
+                        );
+                      },
                     ),
                   ),
                 ),
+              ),
 
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.sp),
-                    child: Center(
-                      child: ListView.builder(
-                        padding: EdgeInsets.symmetric(vertical: 8.sp),
-                        itemCount: subjects.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.only(bottom: 16.sp),
-                            child: _buildSubjectCard(subjects[index], false),
+              // Page indicator
+              if (backgroundImages.length > 1)
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.sp),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(backgroundImages.length, (index) {
+                      return GestureDetector(
+                        onTap: () {
+                          _pageController.animateToPage(
+                            index,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
                           );
                         },
-                      ),
-                    ),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          width: _currentPage == index ? 24.sp : 8.sp,
+                          height: 8.sp,
+                          margin: EdgeInsets.symmetric(horizontal: 4.sp),
+                          decoration: BoxDecoration(
+                            color: _currentPage == index
+                                ? Colors.white
+                                : Colors.white.withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(4.r),
+                          ),
+                        ),
+                      );
+                    }),
                   ),
                 ),
-
-                // Page indicator
-                if (backgroundImages.length > 1)
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 20.sp),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(backgroundImages.length, (index) {
-                        return GestureDetector(
-                          onTap: () {
-                            _pageController.animateToPage(
-                              index,
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
-                          },
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 300),
-                            width: _currentPage == index ? 24.sp : 8.sp,
-                            height: 8.sp,
-                            margin: EdgeInsets.symmetric(horizontal: 4.sp),
-                            decoration: BoxDecoration(
-                              color: _currentPage == index
-                                  ? Colors.white
-                                  : Colors.white.withOpacity(0.5),
-                              borderRadius: BorderRadius.circular(4.r),
-                            ),
-                          ),
-                        );
-                      }),
-                    ),
-                  ),
-              ],
-            ),
+            ],
           ),
         ),
       ],
